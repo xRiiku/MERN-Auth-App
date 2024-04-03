@@ -16,7 +16,10 @@ const URL = process.env.URL || 'http://localhost';
 
 app.use(express.json());
 app.use(cookieParser())
-app.use(cors());
+app.use(cors({
+    origin: 'https://mernauthapp.rikudev.com', 
+    credentials: true
+}));
 db.initDB();
 
 app.listen(PORT, () => {
