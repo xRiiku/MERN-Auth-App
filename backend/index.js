@@ -15,6 +15,15 @@ const URL = process.env.URL || 'http://localhost';
 
 app.use(express.json());
 app.use(cookieParser())
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://mernauthapp.rikudev.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+});
+
 app.use(cors({
     origin: function(origin, callback) {
       // Permitir solicitudes si el origen está en la lista de orígenes permitidos o si no se proporciona origen (solicitud no CORS)
