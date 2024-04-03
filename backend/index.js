@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser())
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://mernauthapp.rikudev.com');
+    res.setHeader('Access-Control-Allow-Origin', 'https://mernauthapp.rikudev.com', 'https://mern-auth-app-sable.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
