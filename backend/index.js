@@ -20,7 +20,7 @@ app.use(cookieParser())
 app.use(cors({
     origin: function(origin, callback) {
       // Permitir solicitudes si el origen está en la lista de orígenes permitidos o si no se proporciona origen (solicitud no CORS)
-        if (!origin || allowedOrigins.includes(origin) || origin.startsWith('https://mernauthapp.rikudev.com') || origin.startsWith('https://mern-auth-app-sigma.vercel.app')) {
+        if (!origin || allowedOrigins.includes(origin) || origin.startsWith('https://mernauthapp.rikudev.com')) {
         callback(null, true);
         } else {
         callback(new Error('Not allowed by CORS'));
