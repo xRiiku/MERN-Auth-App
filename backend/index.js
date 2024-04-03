@@ -1,5 +1,4 @@
 import express from 'express';
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 
@@ -24,17 +23,6 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 app.use(cookieParser())
-app.use(cors({
-    origin: function(origin, callback) {
-      // Permitir solicitudes si el origen está en la lista de orígenes permitidos o si no se proporciona origen (solicitud no CORS)
-        if (!origin || allowedOrigins.includes(origin) || origin.startsWith('https://mernauthapp.rikudev.com')) {
-        callback(null, true);
-        } else {
-        callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true // Habilitar el envío de cookies u otras credenciales con la solicitud
-}));
 db.initDB();
 
 app.listen(PORT, () => {
