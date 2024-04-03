@@ -1,1 +1,1 @@
-export const URL = "https://mern-auth-app-sigma.vercel.app" 
+export const URL = "https://mern-auth-app-backend.vercel.app/" 
