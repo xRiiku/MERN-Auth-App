@@ -12,7 +12,8 @@ const app = express();
 dotenv.config();
 const PORT = 3001;
 const URL = process.env.URL || 'http://localhost';
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:3001', 'https://mern-auth-app-sigma.vercel.app/', 'https://mernauthapp.rikudev.com'];
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:3001', 'https://mern-auth-app-sigma.vercel.app', 'https://mernauthapp.rikudev.com'];
+
 
 app.use(express.json());
 app.use(cookieParser())
