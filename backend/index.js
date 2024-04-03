@@ -1,6 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import userRoutes from './routes/user.route.js'
 import authRoutes  from './routes/auth.route.js'
@@ -11,7 +12,7 @@ const app = express();
 dotenv.config();
 const PORT = 3001;
 const URL = process.env.URL || 'http://localhost';
-const allowedOrigins = ['http://localhost:5173', 'https://mernauthapp.rikudev.com'];
+app.use(cors())
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
