@@ -34,7 +34,9 @@ app.use(cors({
         callback(new Error('Not allowed by CORS'));
         }
     },
-    credentials: true // Habilitar el envío de cookies u otras credenciales con la solicitud
+    credentials: true,
+    secure: true,
+    sameSite: 'none',
 }));
 db.initDB();
 
