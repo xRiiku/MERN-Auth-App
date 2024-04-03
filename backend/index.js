@@ -14,6 +14,13 @@ const PORT = 3001;
 const URL = process.env.URL || 'http://localhost';
 const allowedOrigins = ['http://localhost:5173', 'https://mernauthapp.rikudev.com'];
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "*");
+    res.header("Access-Control-Allow-Credentials", "true");
+    next();
+});
+
 
 app.use(express.json());
 app.use(cookieParser())
