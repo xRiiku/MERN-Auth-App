@@ -107,6 +107,7 @@ export default function Profile() {
   const handleSignOut = async () => {
     try {
       await fetch(`${URL}/auth/signout`, {
+        method: 'GET',
         credentials: 'include',
       });
       dispatch(signOut())
