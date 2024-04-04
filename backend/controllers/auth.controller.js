@@ -27,7 +27,7 @@ export const signin = async (req, res, next) => {
         const { password: hashedPassword, ...rest } = validUser._doc;
         const expiryDate = new Date(Date.now() + (3600000 * 24)); // 24 hours
         res
-        .cookie('access_token', token, { httpOnly: true, expires: expiryDate, secure: true, sameSite: 'Strict'})
+        .cookie('access_token', token, { httpOnly: true, expires: expiryDate, secure: true, sameSite: 'Strict', partitioned: true})
         .status(200)
         .json(rest);
     } catch (error) {
@@ -47,7 +47,8 @@ export const google = async (req, res, next) => {
             httpOnly: true,
             expires: expiryDate,
             secure: true, 
-            sameSite: 'Strict'
+            sameSite: 'Strict',
+            partitioned: true
             })
             .status(200)
             .json(rest);
@@ -73,7 +74,8 @@ export const google = async (req, res, next) => {
             httpOnly: true,
             expires: expiryDate,
             secure: true, 
-            sameSite: 'Strict'
+            sameSite: 'Strict', 
+            partitioned: true
             })
             .status(200)
             .json(rest);
